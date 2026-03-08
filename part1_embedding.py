@@ -16,12 +16,11 @@ base_path = "data/20_newsgroups"
 documents = []
 labels = []
 
-print("c1")  # remove this later
 
 for category in os.listdir(base_path):
     category_path = os.path.join(base_path, category)
 
-    print("c2")  # remove this later
+    print("c2")
 
     if os.path.isdir(category_path):
         for filename in os.listdir(category_path):
@@ -38,9 +37,7 @@ for category in os.listdir(base_path):
 
 print("Total documents loaded:", len(documents))
 
-
-# STEP 2: CLEAN TEXT
-
+# Below function was not used as it was not able to remove the desired amount of noise from the dataset
 
 # def clean_text(text):
 #     lines = text.split("\n")
@@ -131,7 +128,7 @@ print("Cleaned metadata saved.")
 
 # STEP 4: LOAD EMBEDDING MODEL
 
-# all-MiniLM-L6-v2 chosen because of it's lightweight, fast, strong semantic quality for medium corpus size
+# all-MiniLM-L6-v2 chosen because of it's lightweight, fast, strong semantic quality for medium corpus size (which we've been provided with)
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
